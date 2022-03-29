@@ -11,7 +11,7 @@ class CannyFilter(FilterBase):
         self.var_max = DoubleVar()
 
         self.s_min = Scale(root,label="MIN THRESHOLDS: ",variable=self.var_min,from_=0,to=255,length=600,orient=HORIZONTAL,command=self.applyFilter)
-        self.s_max = Scale(root,label="MAX THRESHOLDS: ",variable=self.var_max,from_=0,to=255,length=600,orient=HORIZONTAL,command=self.applyFilter)
+        self.s_max = Scale(root,label="MAX THRESHOLDS: ",variable=self.var_max,from_=0,to=500,length=600,orient=HORIZONTAL,command=self.applyFilter)
         
         self.s_min.pack(anchor=CENTER)
         self.s_max.pack(anchor=CENTER)

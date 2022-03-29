@@ -38,7 +38,6 @@ class InputDisplay:
 
         #Convert to PIL format
         img = Image.fromarray(img)
-        print(self.max_dimension)
         img.thumbnail(self.max_dimension, Image.ANTIALIAS)
         
         #Convert to Tkinter format
