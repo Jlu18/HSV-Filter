@@ -30,7 +30,8 @@ class FilterTabs:
     
     def setInputImage(self,img):
         self.input = img
-        self.currentFilter.setImage(img)
+        for key in self.filters:
+            self.filters[key].setImage(img)
     
     def setCurrentTab(self, *args):
         text = self.notebook.tab(self.notebook.select(), "text")
