@@ -8,7 +8,7 @@
             "name": "Entrypoint",
             "type": "python",
             "request": "launch",
-            "program": "display.py",
+            "program": "main.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

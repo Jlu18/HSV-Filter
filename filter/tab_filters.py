@@ -13,7 +13,6 @@ class FilterTabs:
         }
 
         self.root = root
-            
         self.notebook = ttk.Notebook(root)
 
         for name,_ in self.filters.items():
@@ -21,15 +20,28 @@ class FilterTabs:
             self.notebook.add(tab,text=name)
 
             if name == "HSV":
-                val = HSVFilter(tab)
+                val = HSVFilter(tab,self.onFilterGenerated)
             elif name == "Canny":
-                val = CannyFilter(tab)
+                val = CannyFilter(tab,self.onFilterGenerated)
             self.filters[name] = val
 
         self.notebook.pack(expand = 1, fill="both")
-
-
-    def currentFilter(self):
+        self.notebook.bind('<<NotebookTabChanged>>',self.setCurrentTab)
+    
+    def setInputImage(self,img):
+        self.input = img
+        self.currentFilter.setImage(img)
+    
+    def setCurrentTab(self, *args):
         text = self.notebook.tab(self.notebook.select(), "text")
-        return self.filters[text]
+        self.currentFilter = self.filters[text]
+        self.currentFilter.applyFilter()
+
+    def onOutputRecieved(self,callback):
+        self.callback = callback
+
+    def onFilterGenerated(self,img):
+        self.callback(img)
+
         
+
