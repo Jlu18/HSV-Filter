@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import filedialog
 import cv2
 from PIL import Image, ImageTk
+import numpy as np
 
 class InputDisplay:
     def __init__(self,root,filters): 
@@ -24,7 +25,7 @@ class InputDisplay:
             return
 
         #Read image from path
-        self.img_cv = cv2.imread(path)
+        self.img_cv = cv2.imdecode(np.fromfile(path,dtype=np.uint8),cv2.IMREAD_UNCHANGED)
 
         if(self.img_cv is None):
             print(f"Error: Unable to read file: {path}")
