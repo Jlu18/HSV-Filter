@@ -10,7 +10,6 @@
 ![plant](https://github.com/Jlu18/HSV-Filter/blob/master/sample_output/plant_output.png?raw=true )
 
 
-
 ## Library used
 * OpenCV https://opencv.org/
 * Tkinter https://docs.python.org/3/library/tkinter.html
